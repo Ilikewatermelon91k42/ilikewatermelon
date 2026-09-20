@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class city{
+    private:
+    int code;
+    string name;
+    long pop;
+    public:
+    void accept(){
+        cout<<"Enter city code: ";
+        cin>>code;
+        cout<<"Enter city name: ";
+        cin>>name;
+        cout<<"Enter population: ";
+        cin>>pop;
+    }
+    void display(){
+        cout<<"\nCity code: "<<code;
+        cout<<"\nCity name: "<<name;
+        cout<<"\nCity population: "<<pop<<endl;
+    }
+    bool startswithp(){
+        return(!name.empty()&&(name[0]=='P'||name[0]=='p'));
+    }
+};
+int main(){
+    int n;
+    cout<<"Enter number of cities: ";
+    cin>>n;
+    city c[n];
+    cout<<"\nEnter city details:\n";
+    for(int i=0;i<n;i++){
+        cout<<"\nCity"<<i+1<<endl;
+        c[i].accept();
+    }
+    cout<<"\nCities whose name start with 'P':\n";
+    for(int i=0;i<n;i++){
+        if(c[i].startswithp()){
+            c[i].display();
+        }
+    }
+}
