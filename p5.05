@@ -1,0 +1,71 @@
+#include <iostream>
+using namespace std;
+class Shape{
+public:
+    virtual void display(){
+        cout << "This is a Shape." << endl;
+    }
+    virtual void area(){
+        cout << "Area of Shape." << endl;
+    }
+};
+class Circle : public Shape{
+private:
+    float radius;
+public:
+    Circle(){
+        radius = 0;
+    }
+    Circle(float r){
+        radius = r;
+    }
+    void display() override{
+        cout << "Shape: Circle" << endl;
+        cout << "Radius: " << radius << endl;
+    }
+    void area() override{
+        cout << "Area of Circle = " << 3.14159 * radius * radius << endl;
+    }
+};
+class Rectangle : public Shape{
+private:
+    float length, width;
+public:
+    Rectangle(){
+        length = 0;
+        width = 0;
+    }
+    Rectangle(float l, float w){
+        length = l;
+        width = w;
+    }
+    void display() override{
+        cout << "Shape: Rectangle" << endl;
+        cout << "Length: " << length << endl;
+        cout << "Width: " << width << endl;
+    }
+    void area() override{
+        cout << "Area of Rectangle = " << length * width << endl;
+    }
+};
+int main(){
+    float r, l, w;
+    cout << "Enter radius of Circle: ";
+    cin >> r;
+    Circle c(r);
+    cout << "\nEnter length of Rectangle: ";
+    cin >> l;
+    cout << "Enter width of Rectangle: ";
+    cin >> w;
+    Rectangle rect(l, w);
+    Shape *ptr;
+    cout << "\n--- Circle Details ---" << endl;
+    ptr = &c;
+    ptr->display();
+    ptr->area();
+    cout << "\n--- Rectangle Details ---" << endl;
+    ptr = &rect;
+    ptr->display();
+    ptr->area();
+    return 0;
+}
