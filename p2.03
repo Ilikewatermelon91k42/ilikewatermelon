@@ -1,0 +1,42 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class product{
+    private:
+    int id;
+    string name;
+    int qty;
+    float price;
+    public:
+    void accept(){
+        cout<<"Enter product ID: ";
+        cin>>id;
+        cout<<"Enter product name: ";
+        cin>>name;
+        cout<<"Enter product quantity: ";
+        cin>>qty;
+        cout<<"Enter product price: ";
+        cin>>price;
+    }
+    void display(){
+        cout<<"\nProduct ID: "<<id;
+        cout<<"\nProduct name: "<<name;
+        cout<<"\nProduct quantity: "<<qty;
+        cout<<"\nProduct price: "<<price;
+    }
+};
+
+int main(){
+    product p[3];
+    cout<<"Enter details of 3 products:\n";
+    for(int i=0;i<3;i++){
+        cout<<"\nProduct"<<i+1<<endl;
+        p[i].accept();
+    }
+    cout<<"\nProduct details:";
+    for(int i=0;i<3;i++){
+        cout<<"\n\nProduct"<<i+1<<endl;
+        p[i].display();
+        }
+}
