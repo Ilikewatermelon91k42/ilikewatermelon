@@ -1,0 +1,48 @@
+#include<iostream>
+using namespace std;
+class shape{
+    protected:
+    double val1,val2;
+    public:
+    void setinfo(double a,double b=0){
+        val1=a;
+        val2=b;
+    }
+    virtual void getinfo(){
+        cout<<"Area of shape="<<val1*val2<<endl;
+    }
+};
+class triangle:public shape{
+    public:
+    void getinfo(){
+        cout<<"Area of triangle="<<0.5*val1*val2<<endl;
+    }
+}; 
+class circle:public shape{
+    public:
+    void getinfo(){
+        cout<<"Area of circle="<<3.14*val1*val1<<endl;
+    }
+};
+class rectangle:public shape{
+    public:
+    void getinfo(){
+        cout<<"Area of rectangle="<<val1*val2<<endl;
+    }
+};
+int main(){
+    shape *ptr;
+    triangle t;
+    circle c;
+    rectangle r;
+    t.setinfo(10,5);
+    ptr=&t;
+    ptr->getinfo();
+    c.setinfo(7);
+    ptr=&c;
+    ptr->getinfo();
+    r.setinfo(10,5);
+    ptr=&r;
+    ptr->getinfo();
+    return 0;
+}
