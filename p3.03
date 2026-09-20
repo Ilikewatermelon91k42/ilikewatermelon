@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+class Date{
+    private:
+    int dd,mm,yyyy;
+    public:
+    Date(int d,int m,int y){
+        dd=d;
+        mm=m;
+        yyyy=y;
+    }
+    void validate(){
+        bool valid=true;
+        if(yyyy<0){
+            valid=false;
+        }
+        if(mm<1 || mm>12){
+            valid=false;
+        }
+        if(dd<1 || dd>31){
+            valid=false;
+        }
+        int daysInMonth;
+        if(mm==2){
+            if((yyyy%4==0 && yyyy%100!=0) || (yyyy%400==0)){
+                daysInMonth=29;
+            }else{
+                daysInMonth=28;
+            }
+        }else if(mm==4 || mm==6 || mm==9 || mm==11){
+            daysInMonth=30;
+        }else{
+            daysInMonth=31;
+        }
+        if(dd<1||dd>daysInMonth){
+            valid=false;
+        }
+        if(valid){
+            cout<<"Valid date:"<<dd<<"/"<<mm<<"/"<<yyyy<<endl;
+        }else{
+            cout<<"Invalid date:"<<dd<<"/"<<mm<<"/"<<yyyy<<endl;
+        }
+    }
+};
+int main(){
+    Date d1(22,8,2026);
+    Date d2(31,2,2025);
+    Date d3(29,2,2024);
+    d1.validate();
+    d2.validate();
+    d3.validate();
+}
