@@ -1,0 +1,20 @@
+#include<iostream>
+using namespace std;
+inline float perimeter(float length, float width)
+{
+    return 2 * (length + width);
+}
+int main()
+{
+    float length, width;
+    cout << "Enter the length and width of the rectangle 1--> ";
+    cin >> length >> width;
+    cout << "The perimeter of the rectangle 1 is: " << perimeter(length, width) << endl;
+    cout << "Enter the length and width of the rectangle 2--> ";
+    cin >> length >> width;
+    cout << "The perimeter of the rectangle 2 is: " << perimeter(length, width) << endl;
+    cout << "Enter the length and width of the rectangle 3--> ";
+    cin >> length >> width;
+    cout << "The perimeter of the rectangle 3 is: " << perimeter(length, width) << endl;
+    return 0;
+}
