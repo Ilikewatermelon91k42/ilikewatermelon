@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+class Complexnumber{
+    private:
+    float real,imaginary;
+    public:
+    Complexnumber(float r,float i){
+        real=r;
+        imaginary=i;
+    }
+    void add(Complexnumber c){
+        float realsum=real+c.real;
+        float imaginarysum=imaginary+c.imaginary;
+        cout<<"Addition= "<<realsum;
+        if(imaginarysum>=0){
+            cout<<"+"<<imaginarysum<<"i";
+        }else{
+            cout<<"-"<<imaginarysum<<"i";
+        }
+        cout<<endl;
+    }
+};
+int main(){
+    Complexnumber c1(5,3);
+    Complexnumber c2(2,4);
+    cout<<"First complex number=5+3i"<<endl;
+    cout<<"Second complex number=2+4i"<<endl;
+    c1.add(c2);
+}
