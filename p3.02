@@ -1,0 +1,28 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Student{
+    private:
+    string name;
+    char grade;
+    int age;
+    public:
+    Student(string n,int a,char g='p'){
+        name=n;
+        age=a;
+        grade=g;
+    }
+    void display(){
+        cout<<"Student Name= "<<name<<endl;
+        cout<<"Age= "<<age<<endl;
+        cout<<"Grade= "<<grade<<endl;
+    }
+};
+int main(){
+    Student s1("Rahul",20,'A');
+    Student s2("Priya",21);
+    cout<<"Student 1 details:"<<endl;
+    s1.display();
+    cout<<"Student 2 details:"<<endl;
+    s2.display();
+}
