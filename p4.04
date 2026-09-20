@@ -1,0 +1,25 @@
+#include<iostream>
+using namespace std;
+class rectangle{
+    private:
+        int width;
+        int hight;
+    public:
+        rectangle(float w, float h){
+            width = w;
+            hight = h;
+        }
+        float area()const{
+            return width * hight;
+        }
+};
+int main(){
+    float width, hight;
+    cout<<"Enter width of the rectangle-->";
+    cin>>width;
+    cout<<"Enter height of the rectangle-->";
+    cin>>hight;
+    rectangle r(width, hight);
+    cout<<"Area of the rectangle is: "<<r.area()<<endl;
+    return 0;
+}
