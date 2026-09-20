@@ -1,0 +1,107 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Person{
+protected:
+    string name;
+    int age;
+public:
+    Person(){
+        name = "Unknown";
+        age = 0;
+    }
+    Person(string n, int a){
+        name = n;
+        age = a;
+    }
+    void getPersonData(){
+        cout << "Enter Name: ";
+        cin >> name;
+        cout << "Enter Age: ";
+        cin >> age;
+    }
+    void displayPersonData(){
+        cout << "Name : " << name << endl;
+        cout << "Age : " << age << endl;
+    }
+};
+class Student : virtual public Person{
+protected:
+    int rollNo;
+    string course;
+public:
+    Student(){
+        rollNo = 0;
+        course = "Unknown";
+    }
+    Student(int r, string c){
+        rollNo = r;
+        course = c;
+    }
+    void getStudentData(){
+        cout << "Enter Roll Number: ";
+        cin >> rollNo;
+        cout << "Enter Course: ";
+        cin >> course;
+    }
+    void displayStudentData(){
+        cout << "Roll Number: " << rollNo << endl;
+        cout << "Course : " << course << endl;
+    }
+};
+class Employee : virtual public Person{
+protected:
+    int employeeId;
+    string department;
+public:
+    Employee(){
+        employeeId = 0;
+        department = "Unknown";
+    }
+    Employee(int id, string d){
+        employeeId = id;
+        department = d;
+    }
+    void getEmployeeData(){
+        cout << "Enter Employee ID: ";
+        cin >> employeeId;
+        cout << "Enter Department: ";
+        cin >> department;
+    }
+    void displayEmployeeData(){
+        cout << "Employee ID: " << employeeId << endl;
+        cout << "Department : " << department << endl;
+    }
+};
+class TeachingAssistant : public Student, public Employee{
+private:
+    double stipend;
+public:
+    TeachingAssistant(){
+        stipend = 0;
+    }
+    TeachingAssistant(string n, int a, int r, string c, int id, string d, double s) : Person(n, a), Student(r, c), Employee(id, d){
+        stipend = s;
+    }
+    void getData(){
+        getPersonData();
+        getStudentData();
+        getEmployeeData();
+        cout << "Enter Stipend: ";
+        cin >> stipend;
+    }
+    void displayData(){
+        cout << "\n--- Teaching Assistant Details ---" << endl;
+        displayPersonData();
+        displayStudentData();
+        displayEmployeeData();
+        cout << "Stipend : " << stipend << endl;
+    }
+};
+int main(){
+    TeachingAssistant ta;
+    cout << "--- Enter Teaching Assistant Details ---" << endl;
+    ta.getData();
+    ta.displayData();
+    return 0;
+}
