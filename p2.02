@@ -1,0 +1,45 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class employee{
+    private:
+    int id;
+    string name;
+    string company_name;
+    float salary;
+    public:
+    void accept(){
+        cout<<"Enter employee ID: ";
+        cin>>id;
+        cout<<"Enter employee name: ";
+        cin>>name;
+        cout<<"Enter company name: ";
+        cin>>company_name;
+        cout<<"Enter employee salary: ";
+        cin>>salary;
+    }
+    void display(){
+        cout<<"\nEmployee ID: "<<id;
+        cout<<"\nEmployee name: "<<name;
+        cout<<"\ncompany name: "<<company_name;
+        cout<<"\nEmployee salary: "<<salary;
+    }
+};
+
+int main(){
+    int n;
+    cout<<"Enter number of employee: ";
+    cin>>n;
+    employee e[n];
+    cout<<"\nEnter employee details:\n";
+    for(int i=0;i<n;i++){
+        cout<<"\nEmployee"<<i+1<<endl;
+        e[i].accept();
+    }
+    cout<<"\nEmployee information:";
+    for(int i=0;i<n;i++){
+        cout<<"\n\nEmployee"<<i+1<<endl;
+        e[i].display();
+    }
+}
