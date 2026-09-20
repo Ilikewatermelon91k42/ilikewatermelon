@@ -1,0 +1,52 @@
+#include <iostream>
+#include <string>
+#include <limits>
+using namespace std;
+class Employee{
+protected:
+    string employeeName;
+    int code;
+    string designation;
+public:
+    void getEmployeeData(){
+        cout << "Enter Employee Name: ";
+        getline(cin, employeeName);
+
+        cout << "Enter Employee Code: ";
+        cin >> code;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clear buffer for string input
+
+        cout << "Enter Designation: ";
+        getline(cin, designation);
+    }
+    void displayEmployeeData() const{
+        cout << "\nEmployee Name : " << employeeName;
+        cout << "\nEmployee Code : " << code;
+        cout << "\nDesignation   : " << designation;
+    }
+};
+class Manager : public Employee{
+private:
+    int experience;
+    double salary;
+public:
+    void getManagerData(){
+        cout << "Enter Years of Experience: ";
+        cin >> experience;
+        cout << "Enter Salary: ";
+        cin >> salary;
+    }
+    void displayManagerData() const{
+        displayEmployeeData();
+        cout << "\nExperience: " << experience << " years";
+        cout << "\nSalary: " << salary <<"$"<< endl;
+    }
+};
+int main(){
+    Manager m;
+    m.getEmployeeData();
+    m.getManagerData();
+    cout << "\n--- Manager Information ---";
+    m.displayManagerData();
+    return 0;
+}
