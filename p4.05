@@ -1,0 +1,21 @@
+#include<iostream>
+using namespace std;
+inline int findmax(int arr[],int size){
+    int max=arr[0];
+    for(int i=1;i<size;i++){
+        if(arr[i]>max){
+            max=arr[i];
+        }
+    }
+    return max;
+}
+int main(){
+    int arr1[]={10,25,15,40,30};
+    int arr2[]={12,50,35,20,45};
+    int arr3[]={5,18,9,60,25};
+    int size=5;
+    cout<<"Maximum in arr1: "<<findmax(arr1,size)<<endl;
+    cout<<"Maximum in arr2: "<<findmax(arr2,size)<<endl;
+    cout<<"Maximum in arr3: "<<findmax(arr3,size)<<endl;
+    return 0;
+}
