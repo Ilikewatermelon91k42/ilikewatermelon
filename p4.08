@@ -1,0 +1,29 @@
+#include<iostream>
+using namespace std;
+class mypoint{
+    private:
+        int x;
+        int y;
+    public:
+        mypoint(int a,int b){
+            x=a;
+            y=b;
+        }
+       mypoint(const mypoint &p){
+            x=p.x;
+            y=p.y;
+       }
+       void display(){
+            cout<<"x="<<x<<endl;
+            cout<<"y="<<y<<endl;
+       }
+};
+int main(){
+    mypoint p1(10,20);
+    cout<<"Original point:"<<endl;
+    p1.display();
+    mypoint p2(p1);
+    cout<<"\nCopied point:"<<endl;
+    p2.display();
+    return 0;
+}
