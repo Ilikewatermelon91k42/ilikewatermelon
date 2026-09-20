@@ -1,0 +1,27 @@
+#include<iostream>
+using namespace std;
+class Array{
+    private:
+    int arr[5];
+    public:
+    void accept(){
+        cout<<"Enter 5 arrays elements";
+        for(int i=0;i<5;i++){
+            cout<<"\nEnter element "<<i+1<<"-->";
+            cin>>arr[i];
+        }
+    }
+    int sum()const{
+        int total=0;
+        for(int i=0;i<5;i++){
+            total+=arr[i];
+        }
+        return total;
+    }
+};
+int main(){
+    Array a;
+    a.accept();
+    cout<<"Sum of array elements is-->"<<a.sum()<<endl;
+    return 0;
+}
