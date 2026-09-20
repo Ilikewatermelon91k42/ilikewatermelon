@@ -1,0 +1,65 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Student{
+    private:
+    int Rollno;
+    string name;
+    int NoOfSubjects;
+    float *marks;
+    public:
+    Student(int r,string n,int subject,float m[]){
+        Rollno=r;
+        name=n;
+        NoOfSubjects=subject;
+        marks=new float[NoOfSubjects];
+        for(int i=0;i<NoOfSubjects;i++){
+            marks[i]=m[i];
+        }
+    }
+    float calculatepercentage(){
+        float total=0;
+        for(int i=0;i<NoOfSubjects;i++){
+            total+=marks[i];
+        }
+        return total/NoOfSubjects;
+    }
+    string getClass(){
+        float percentage=calculatepercentage();
+        if(percentage>=75){
+            return "Distinction";
+        }else if(percentage>=60){
+            return "First Class";
+        }else if(percentage>=50){
+            return "Second Class";
+        }else if(percentage>=40){
+            return "Pass Class";
+        }else{
+            return "Fail";
+        }
+    }
+    void display(){
+        cout<<"\n--Student Details--"<<endl;
+        cout<<"Roll Number: "<<Rollno<<endl;
+        cout<<"Name: "<<name<<endl;
+        cout<<"Number of Subjects: "<<NoOfSubjects<<endl;
+        cout<<"Marks: ";
+        for(int i=0;i<NoOfSubjects;i++){
+            cout<<marks[i]<<" ";
+        }
+        cout<<endl;
+        cout<<"Percentage: "<<calculatepercentage()<<"%"<<endl;
+        cout<<"Class: "<<getClass()<<endl;
+    }
+    ~Student(){
+        delete[] marks;
+    }
+};
+int main(){
+    float marks1[]={85,78,92,88,80};
+    float marks2[]={65,70,58};
+    Student s1(101,"Rahul",5,marks1);
+    Student s2(102,"Priya",3,marks2);
+    s1.display();
+    s2.display();
+}
