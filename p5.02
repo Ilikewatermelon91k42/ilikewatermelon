@@ -1,0 +1,58 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class employee{
+    protected:
+    string name;
+    int id;
+    public:
+    void setemployee(){
+        cout<<"Enter employee name: ";
+        cin>>name;
+        cout<<"Enter employee id: ";
+        cin>>id;
+    }
+    void getemployee(){
+        cout<<"\nEmployee name: "<<name<<endl;
+        cout<<"Employee id: "<<id<<endl;
+    }
+};
+class manager:public employee{
+    protected:
+    string department;
+    int teamsize;
+    public:
+    void setmanager(){
+        cout<<"Enter department: ";
+        cin>>department;
+        cout<<"Enter team size: ";
+        cin>>teamsize;
+    }
+    void getmanager(){
+        getemployee();
+        cout<<"\nDepartment: "<<department<<endl;
+        cout<<"Team size: "<<teamsize<<endl;
+    }
+};
+class seniormanager:public manager{
+    private:
+    double salary;
+    public:
+    void setseniormanager(){
+        cout<<"Enter salary: ";
+        cin>>salary;
+    }
+    void getseniormanager(){
+        getmanager();
+        cout<<"\nSalary: "<<salary<<endl;
+    }
+};
+int main(){
+    seniormanager sm;
+    sm.setseniormanager();
+    sm.setmanager();
+    sm.setemployee();
+    cout<<"\nemployee details: "<<endl;
+    sm.getseniormanager();
+    return 0;
+}
