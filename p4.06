@@ -1,0 +1,28 @@
+#include<iostream>
+using namespace std;
+class tconverter{
+    public:
+    static float celsiustofahrenheit(float celsius){
+        return (celsius * 9/5) + 32;
+    }
+    static float fahrenheittocelsius(float fahrenheit){
+        return (fahrenheit - 32) * 5/9;
+    }
+};
+int main(){
+    float celsius, fahrenheit;
+    cout << "Enter temperature in Celsius: ";
+    cin >> celsius;
+    fahrenheit = tconverter::celsiustofahrenheit(celsius);
+    cout << celsius << " Celsius is " << fahrenheit << " Fahrenheit." << endl;
+    cout << "Enter temperature in Fahrenheit: ";
+    cin >> fahrenheit;
+    celsius = tconverter::fahrenheittocelsius(fahrenheit);
+    cout << fahrenheit << " Fahrenheit is " << celsius << " Celsius." << endl;
+    cout<<"\nConversion for various temperatures:\n";
+    cout<<"25 Celsius = "<<tconverter::celsiustofahrenheit(25)<<" Fahrenheit\n";
+    cout<<"37 Celsius = "<<tconverter::celsiustofahrenheit(37)<<" Fahrenheit\n";
+    cout<<"98.6 Fahrenheit = "<<tconverter::fahrenheittocelsius(98.6)<<" Celsius\n";
+    cout<<"212 Fahrenheit = "<<tconverter::fahrenheittocelsius(212)<<" Celsius\n";
+    return 0;
+}
