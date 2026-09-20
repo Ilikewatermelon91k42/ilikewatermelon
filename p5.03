@@ -1,0 +1,73 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Person{
+protected:
+    string name;
+    int age;
+public:
+    void getPersonData(){
+        cout << "Enter Name: ";
+        cin >> name;
+        cout << "Enter Age: ";
+        cin >> age;
+    }
+    void displayPersonData(){
+        cout << "\nName: " << name;
+        cout << "\nAge: " << age;
+    }
+};
+class Employee{
+protected:
+    int employeeId;
+    string designation;
+
+public:
+    void getEmployeeData(){
+        cout << "Enter Employee ID: ";
+        cin >> employeeId;
+        cout << "Enter Designation: ";
+        cin >> designation;
+    }
+    void displayEmployeeData(){
+        cout << "\nEmployee ID: " << employeeId;
+        cout << "\nDesignation: " << designation;
+    }
+};
+class Customer{
+protected:
+    int customerId;
+public:
+    void getCustomerData(){
+        cout << "Enter Customer ID: ";
+        cin >> customerId;
+    }
+    void displayCustomerData(){
+        cout << "\nCustomer ID: " << customerId;
+    }
+};
+class Vendor : public Person, public Employee, public Customer{
+private:
+    string companyName;
+public:
+    void getVendorData(){
+        cout << "Enter Company Name: ";
+        cin >> companyName;
+    }
+    void displayVendorData(){
+        displayPersonData();
+        displayEmployeeData();
+        displayCustomerData();
+        cout << "\nCompany Name: " << companyName << endl;
+    }
+};
+int main(){
+    Vendor v;
+    v.getPersonData();
+    v.getEmployeeData();
+    v.getCustomerData();
+    v.getVendorData();
+    cout << "\n--- Vendor Details ---";
+    v.displayVendorData();
+    return 0;
+}
