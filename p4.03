@@ -1,0 +1,19 @@
+#include<iostream>
+using namespace std;
+class employee{
+    private:
+        static string company_name;
+    public:
+        static void set_company_name(string name){
+            company_name = name;
+        }
+        static string get_company_name(){
+            return company_name;
+        }
+};
+string employee::company_name = "";
+int main(){
+    employee::set_company_name("TechCorp");
+    cout << "Company Name: " << employee::get_company_name() << endl;
+    return 0;
+}
